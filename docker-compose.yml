@@ -1,0 +1,25 @@
+version: "3.6"
+services:
+  beacon-validator:
+    build:
+      context: ./build
+      args:
+        UPSTREAM_VERSION: v22.6.0
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      LOG_TYPE: INFO
+      HTTP_WEB3PROVIDER: "http://goerli-geth.dappnode:8545"
+      GRAFFITI: validating_from_DAppNode
+      WEB3_BACKUP: ""
+      CHECKPOINT_SYNC_URL: ""
+      EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
+    ports:
+      - 9000/tcp
+      - 9000/udp
+    volumes:
+      - "nimbus-prater-data:/home/user/nimbus-eth2/build/data"
+    image: "beacon-validator.nimbus-prater.dnp.dappnode.eth:0.1.0"
+volumes:
+  nimbus-prater-data: {}

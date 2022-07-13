@@ -1,0 +1,11 @@
+[ 
+  {
+      "labels": {
+          "package": "nimbus-prater.dnp.dappnode.eth",
+          "service": "beacon-validator.nimbus-prater.dappnode"
+      },
+      "targets": [
+          "beacon-validator.nimbus-prater.dappnode:8008"
+      ]
+  }
+]
