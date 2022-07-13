@@ -351,7 +351,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "attached_validator_balance_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}/1000000000",
+          "expr": "attached_validator_balance_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}/1000000000",
           "instant": true,
           "interval": "",
           "legendFormat": "vbal",
@@ -432,7 +432,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)*32)",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)*32)",
           "instant": true,
           "interval": "",
           "legendFormat": "",
@@ -517,7 +517,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)*32))/(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)*32)  ",
+          "expr": "(sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)*32))/(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)*32)  ",
           "instant": true,
           "interval": "",
           "legendFormat": "",
@@ -843,7 +843,7 @@
       ],
       "targets": [
         {
-          "expr": "label_replace(max by(pubkey) (attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}/1000000000), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{8}).*\") ",
+          "expr": "label_replace(max by(pubkey) (attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}/1000000000), \"pubkey_short\", \"$1\", \"pubkey\", \"(.{8}).*\") ",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -919,7 +919,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "libp2p_peers{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "libp2p_peers{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "",
@@ -1002,10 +1002,10 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "{instance=\"127.0.0.1:8008\", instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+      "tableColumn": "{instance=\"127.0.0.1:8008\", instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
       "targets": [
         {
-          "expr": "(time()-process_start_time_seconds{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/3600",
+          "expr": "(time()-process_start_time_seconds{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/3600",
           "instant": true,
           "interval": "",
           "legendFormat": "",
@@ -1073,7 +1073,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_active_validators{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} ",
+          "expr": "beacon_active_validators{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} ",
           "instant": true,
           "interval": "",
           "legendFormat": "active",
@@ -1143,7 +1143,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "clamp_min((1-(4*((finalization_delay{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}-2)/100))),0)",
+          "expr": "clamp_min((1-(4*((finalization_delay{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}-2)/100))),0)",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1206,7 +1206,7 @@
           "refId": "A"
         },
         {
-          "expr": "attached_validator_balance_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}/1000000000",
+          "expr": "attached_validator_balance_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}/1000000000",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -1300,7 +1300,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)*32)",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000-(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)*32)",
           "instant": true,
           "interval": "",
           "legendFormat": "total_balance",
@@ -1479,7 +1479,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "libp2p_peers{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "libp2p_peers{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "legendFormat": "peers",
           "refId": "A"
@@ -1571,14 +1571,14 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_current_justified_epoch{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_current_justified_epoch{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "justified",
           "refId": "C"
         },
         {
-          "expr": "beacon_finalized_epoch {instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} ",
+          "expr": "beacon_finalized_epoch {instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} ",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -1634,14 +1634,14 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_slot{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_slot{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "current slot",
           "refId": "A"
         },
         {
-          "expr": "beacon_head_slot{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_head_slot{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "head slot",
@@ -1815,13 +1815,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "beacon_pending_deposits{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_pending_deposits{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "legendFormat": "pending",
           "refId": "B"
         },
         {
-          "expr": "beacon_active_validators{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_active_validators{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "legendFormat": "active validators",
           "refId": "D"
@@ -1943,7 +1943,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1h != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1h > 16))",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1h != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1h > 16))",
           "instant": false,
           "interval": "",
           "intervalFactor": 3,
@@ -2039,7 +2039,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1d > 16))",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1d > 16))",
           "instant": false,
           "interval": "",
           "legendFormat": "",
@@ -2134,7 +2134,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 7d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 7d > 16))",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 7d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 7d > 16))",
           "instant": false,
           "interval": "",
           "legendFormat": "",
@@ -2229,7 +2229,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 30d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 30d > 16))",
+          "expr": "sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"})/1000000000 - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 30d != 0)/1000000000 - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 30d > 16))",
           "instant": false,
           "interval": "",
           "legendFormat": "",
@@ -2294,14 +2294,14 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_blocks_proposed_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_blocks_proposed_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "proposals",
           "refId": "B"
         },
         {
-          "expr": "beacon_attestations_sent_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_attestations_sent_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "legendFormat": "attestations",
           "refId": "A"
@@ -2355,13 +2355,13 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_proposer_slashings_received_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_proposer_slashings_received_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "legendFormat": "proposer",
           "refId": "A"
         },
         {
-          "expr": "beacon_attester_slashings_received_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_attester_slashings_received_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "attester",
@@ -2446,7 +2446,7 @@
       "tableColumn": "annualized hourly return",
       "targets": [
         {
-          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1h != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1h > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)[1h:])))/1000000000 * 365 * 24",
+          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1h != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1h > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)[1h:])))/1000000000 * 365 * 24",
           "hide": false,
           "interval": "",
           "legendFormat": "annualized hourly return",
@@ -2541,7 +2541,7 @@
       "tableColumn": "annualized daily return",
       "targets": [
         {
-          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 1d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)[1d:])))/1000000000 * 365",
+          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 1d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)[1d:])))/1000000000 * 365",
           "hide": false,
           "interval": "",
           "legendFormat": "annualized daily return",
@@ -2636,7 +2636,7 @@
       "tableColumn": "annualized weekly return",
       "targets": [
         {
-          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 7d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 7d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)[7d:])))/1000000000 * (365/7)",
+          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 7d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 7d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)[7d:])))/1000000000 * (365/7)",
           "hide": false,
           "interval": "",
           "legendFormat": "annualized weekly return",
@@ -2731,7 +2731,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 30d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} offset 30d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"} > 16)[30d:])))/1000000000 * (365/30)",
+          "expr": "((sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}) - sum(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 30d != 0) - (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)) + (32 * count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} offset 30d > 16)))/(32 * avg_over_time(count(attached_validator_balance{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"} > 16)[30d:])))/1000000000 * (365/30)",
           "hide": false,
           "interval": "",
           "legendFormat": "annualized monthly return",
@@ -2796,7 +2796,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_voluntary_exits_received_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_voluntary_exits_received_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "voluntary exits received",
@@ -2855,7 +2855,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "failed_web3_requests_total{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "failed_web3_requests_total{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "failed requests",
@@ -2909,7 +2909,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "beacon_pending_deposits{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "beacon_pending_deposits{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "pending",
@@ -2965,7 +2965,7 @@
       "pluginVersion": "7.0.0",
       "targets": [
         {
-          "expr": "((beacon_pending_deposits{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}/4)*6.4)",
+          "expr": "((beacon_pending_deposits{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}/4)*6.4)",
           "instant": true,
           "interval": "",
           "legendFormat": "pending",
@@ -3138,7 +3138,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nim_gc_mem_occupied_bytes{instance=\"beacon-validator.nimbus-prater.dappnode:8008\", job=\"manager_sd\", package=\"nimbus-prater.dnp.dappnode.eth\", service=\"beacon-validator.nimbus-prater.dappnode\"}",
+          "expr": "nim_gc_mem_occupied_bytes{instance=\"beacon-validator.nimbus.dappnode:8008\", job=\"manager_sd\", package=\"nimbus.dnp.dappnode.eth\", service=\"beacon-validator.nimbus.dappnode\"}",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "beacon memory",

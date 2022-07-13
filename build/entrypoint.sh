@@ -1,9 +1,9 @@
 #!/bin/bash
 
 CLIENT="nimbus"
-NETWORK="prater"
+NETWORK="mainnet"
 VALIDATOR_PORT=3500
-WEB3SIGNER_API="http://web3signer.web3signer-${NETWORK}.dappnode:9000"
+WEB3SIGNER_API="http://web3signer.web3signer.dappnode:9000"
 
 DATA_DIR="/home/user/nimbus-eth2/build/data"
 VALIDATORS_DIR="${DATA_DIR}/validators"
@@ -12,7 +12,7 @@ TOKEN_FILE="${DATA_DIR}/auth-token"
 # Create validators dir
 mkdir -p ${VALIDATORS_DIR}
 
-WEB3SIGNER_RESPONSE=$(curl -s -w "%{http_code}" -X GET -H "Content-Type: application/json" -H "Host: beacon-validator.${CLIENT}-${NETWORK}.dappnode" "${WEB3SIGNER_API}/eth/v1/keystores")
+WEB3SIGNER_RESPONSE=$(curl -s -w "%{http_code}" -X GET -H "Content-Type: application/json" -H "Host: beacon-validator.${CLIENT}.dappnode" "${WEB3SIGNER_API}/eth/v1/keystores")
 HTTP_CODE=${WEB3SIGNER_RESPONSE: -3}
 CONTENT=$(echo "${WEB3SIGNER_RESPONSE}" | head -c-4)
 if [ "${HTTP_CODE}" == "403" ] && [ "${CONTENT}" == "*Host not authorized*" ]; then
