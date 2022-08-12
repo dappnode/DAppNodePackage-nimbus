@@ -1,4 +1,3 @@
-
 version: "2"
 fields:
   - id: GRAFFITI
@@ -10,18 +9,19 @@ fields:
     maxLength: 32
     description: >-
       Add a string to your proposed blocks, which will be seen on the block explorer
-  - id: HTTP_WEB3PROVIDER
+  - id: HTTP_ENGINE
+    required: true
     target:
       type: environment
-      name: HTTP_WEB3PROVIDER
+      name: HTTP_ENGINE
       service: beacon-validator
     title: Execution Client endpoint
     description: >-
       Consensus clients require access to an execution client. 
-      
-      - Geth - `http://geth.dappnode:8545` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
-      
-      - Nethermind - `http://nethermind.public.dappnode:8545` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
+
+      - Geth - `http://geth.dappnode:8551` - [Install link](http://my.dappnode/#/installer/geth.dnp.dappnode.eth)
+
+      - Nethermind - `http://nethermind.public.dappnode:8551` - [Install link](http://my.dappnode/#/installer/nethermind.public.dappnode.eth)
   - id: checkpointSyncUrl
     target:
       type: environment
@@ -53,4 +53,3 @@ fields:
     required: true
     pattern: "^0x[a-fA-F0-9]{40}$"
     patternErrorMessage: Must be a valid address (0x1fd16a...)
-  
