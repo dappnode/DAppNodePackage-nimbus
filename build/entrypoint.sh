@@ -68,4 +68,6 @@ exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --keymanager-token-file=${TOKEN_FILE} \
     --graffiti="$GRAFFITI" \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
+    --tcp-port=$P2P_TCP_PORT \
+    --udp-port=$P2P_UDP_PORT \
     $EXTRA_OPTS
