@@ -1,7 +1,7 @@
 {
   "name": "nimbus.dnp.dappnode.eth",
   "version": "0.1.0",
-  "upstreamVersion": "v22.8.0",
+  "upstreamVersion": "v22.8.1",
   "upstreamRepo": "status-im/nimbus-eth2",
   "upstreamArg": "UPSTREAM_VERSION",
   "architectures": ["linux/amd64"],
