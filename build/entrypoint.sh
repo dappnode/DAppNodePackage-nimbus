@@ -49,11 +49,12 @@ fi
         --trusted-node-url=${CHECKPOINT_SYNC_URL} \
         --backfill=false \
         --data-dir=//home/user/nimbus-eth2/build/data
-[[ -n $WEB3_BACKUP_URL ]] && EXTRA_OPTS="--web3-url=${WEB3_BACKUP_URL} ${EXTRA_OPTS}"
-
+        
 exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --network=${NETWORK} \
     --data-dir=${DATA_DIR} \
+    --tcp-port=$P2P_TCP_PORT \
+    --udp-port=$P2P_UDP_PORT \
     --validators-dir=${VALIDATORS_DIR} \
     --log-level=info \
     --rest \
@@ -67,7 +68,7 @@ exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --keymanager-address=0.0.0.0 \
     --keymanager-token-file=${TOKEN_FILE} \
     --graffiti="$GRAFFITI" \
+    --jwt-secret=/jwtsecret \
+    --web3-url=$HTTP_ENGINE \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
-    --tcp-port=$P2P_TCP_PORT \
-    --udp-port=$P2P_UDP_PORT \
     $EXTRA_OPTS

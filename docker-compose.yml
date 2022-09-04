@@ -9,14 +9,13 @@ services:
     stop_grace_period: 1m
     environment:
       LOG_TYPE: INFO
-      HTTP_WEB3PROVIDER: ""
+      HTTP_ENGINE: ""
       GRAFFITI: validating_from_DAppNode
-      WEB3_BACKUP: ""
-      CHECKPOINT_SYNC_URL: ""
-      FEE_RECIPIENT_ADDRESS: ""
       P2P_TCP_PORT: 9106
       P2P_UDP_PORT: 9106
+      CHECKPOINT_SYNC_URL: ""
       EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
     ports:
       - "9106:9106/tcp"
       - "9106:9106/udp"
