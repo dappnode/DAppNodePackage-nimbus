@@ -4,7 +4,7 @@ services:
     build:
       context: ./build
       args:
-        UPSTREAM_VERSION: v22.9.0
+        UPSTREAM_VERSION: nightly
     restart: unless-stopped
     stop_grace_period: 1m
     environment:
