@@ -29,7 +29,7 @@
     "ui": "http://ui.web3signer.dappnode?signer_url=http://web3signer.web3signer.dappnode:9000",
     "homepage": "https://nimbus.team/",
     "readme": "https://github.com/dappnode/DAppNodePackage-nimbus",
-    "docs": "https://www.nimbusproject.org/docs"
+    "docs": "https://nimbus.guide"
   },
   "chain": {
     "driver": "ethereum-beacon-chain",
