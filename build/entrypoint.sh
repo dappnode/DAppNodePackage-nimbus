@@ -1,9 +1,7 @@
 #!/bin/bash
 
-CLIENT="nimbus"
 NETWORK="mainnet"
 VALIDATOR_PORT=3500
-WEB3SIGNER_API="http://web3signer.web3signer.dappnode:9000"
 
 DATA_DIR="/home/user/nimbus-eth2/build/data"
 VALIDATORS_DIR="${DATA_DIR}/validators"
@@ -12,33 +10,33 @@ TOKEN_FILE="${DATA_DIR}/auth-token"
 # Create validators dir
 mkdir -p ${VALIDATORS_DIR}
 
-WEB3SIGNER_RESPONSE=$(curl -s -w "%{http_code}" -X GET -H "Content-Type: application/json" -H "Host: beacon-validator.${CLIENT}.dappnode" "${WEB3SIGNER_API}/eth/v1/keystores")
-HTTP_CODE=${WEB3SIGNER_RESPONSE: -3}
-CONTENT=$(echo "${WEB3SIGNER_RESPONSE}" | head -c-4)
-if [ "${HTTP_CODE}" == "403" ] && [ "${CONTENT}" == "*Host not authorized*" ]; then
-    echo "${CLIENT} is not authorized to access the Web3Signer API. Start without pubkeys"
-elif [ "$HTTP_CODE" != "200" ]; then
-    echo "Failed to get keystores from web3signer, HTTP code: ${HTTP_CODE}, content: ${CONTENT}"
-else
-    PUBLIC_KEYS_WEB3SIGNER=($(echo "${CONTENT}" | jq -r 'try .data[].validating_pubkey'))
-    if [ ${#PUBLIC_KEYS_WEB3SIGNER[@]} -gt 0 ]; then
-        echo "found validators in web3signer, starting vc with pubkeys: ${PUBLIC_KEYS_WEB3SIGNER[*]}"
-        for PUBLIC_KEY in "${PUBLIC_KEYS_WEB3SIGNER[@]}"; do
-            # Docs: https://github.com/status-im/nimbus-eth2/pull/3077#issue-1049195359
-            # create a keystore file with the following format
-            # {
-            # "version": "1",
-            # "description": "This is simple remote keystore file",
-            # "type": "web3signer",
-            # "pubkey": "0x8107ff6a5cfd1993f0dc19a6a9ec7dc742a528dd6f2e3e10189a4a6fc489ae6c7ba9070ea4e2e328f0d20b91cc129733",
-            # "remote": "http://127.0.0.1:15052",
-            # "ignore_ssl_verification": true
-            # }
+case $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET in
+"geth.dnp.dappnode.eth")
+    HTTP_ENGINE="http://geth.dappnode:8551"
+    ;;
+"nethermind.public.dappnode.eth")
+    HTTP_ENGINE="http://nethermind.dappnode:8551"
+    ;;
+"erigon.dnp.dappnode.eth")
+    HTTP_ENGINE="http://erigon.dappnode:8551"
+    ;;
+"besu.dnp.dappnode.eth")
+    HTTP_ENGINE="http://besu.dappnode:8551"
+    ;;
+*)
+    echo "Unknown value for _DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET: $_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET"
+    HTTP_ENGINE=$_DAPPNODE_GLOBAL_EXECUTION_CLIENT_MAINNET
+    ;;
+esac
 
-            echo "creating keystore for pubkey: ${PUBLIC_KEY}"
-            mkdir -p "${VALIDATORS_DIR}"/"${PUBLIC_KEY}"
-            echo "{\"version\": 1,\"description\":\"This is simple remote keystore file\",\"type\":\"web3signer\",\"pubkey\":\"${PUBLIC_KEY}\",\"remote\":\"${WEB3SIGNER_API}\",\"ignore_ssl_verification\":true}" >/home/user/nimbus-eth2/build/data/validators/${PUBLIC_KEY}/remote_keystore.json
-        done
+if [ -n "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" ] && [ "$_DAPPNODE_GLOBAL_MEVBOOST_MAINNET" == "true" ]; then
+    echo "MEVBOOST is enabled"
+    MEVBOOST_URL="http://mev-boost.mev-boost.dappnode:18550"
+    if curl --retry 5 --retry-delay 5 --retry-all-errors "${MEVBOOST_URL}"; then
+        EXTRA_OPTS="${EXTRA_OPTS} --payload-builder=true --payload-builder-url=${MEVBOOST_URL}"
+    else
+        echo "MEVBOOST is enabled but ${MEVBOOST_URL} is not reachable"
+        curl -X POST -G 'http://my.dappnode/notification-send' --data-urlencode 'type=danger' --data-urlencode title="${MEVBOOST_URL} is not available" --data-urlencode 'body=Make sure the mevboost is available and running'
     fi
 fi
 
@@ -49,7 +47,8 @@ fi
         --trusted-node-url=${CHECKPOINT_SYNC_URL} \
         --backfill=false \
         --data-dir=//home/user/nimbus-eth2/build/data
-        
+[[ -n $WEB3_BACKUP_URL ]] && EXTRA_OPTS="--web3-url=${WEB3_BACKUP_URL} ${EXTRA_OPTS}"
+
 exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --network=${NETWORK} \
     --data-dir=${DATA_DIR} \
@@ -67,7 +66,7 @@ exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --keymanager-port=${VALIDATOR_PORT} \
     --keymanager-address=0.0.0.0 \
     --keymanager-token-file=${TOKEN_FILE} \
-    --graffiti="${GRAFFITI:0:32}" \
+    --graffiti="$GRAFFITI" \
     --jwt-secret=/jwtsecret \
     --web3-url=$HTTP_ENGINE \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
