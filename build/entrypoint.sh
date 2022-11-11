@@ -49,7 +49,13 @@ fi
         --trusted-node-url=${CHECKPOINT_SYNC_URL} \
         --backfill=false \
         --data-dir=//home/user/nimbus-eth2/build/data
-        
+
+#Apply graffiti limit to non-unicode characters
+oLang=$LANG oLcAll=$LC_ALL
+LANG=C LC_ALL=C 
+graffitiString=${GRAFFITI:0:32}
+LANG=$oLang LC_ALL=$oLcAll
+
 exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --network=${NETWORK} \
     --data-dir=${DATA_DIR} \
@@ -67,7 +73,7 @@ exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --keymanager-port=${VALIDATOR_PORT} \
     --keymanager-address=0.0.0.0 \
     --keymanager-token-file=${TOKEN_FILE} \
-    --graffiti="${GRAFFITI:0:32}" \
+    --graffiti="${graffitiString}" \
     --jwt-secret=/jwtsecret \
     --web3-url=$HTTP_ENGINE \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
