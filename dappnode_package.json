@@ -1,7 +1,7 @@
 {
   "name": "nimbus.dnp.dappnode.eth",
   "version": "0.1.0",
-  "upstreamVersion": "v22.10.0",
+  "upstreamVersion": "v22.10.1",
   "upstreamRepo": "status-im/nimbus-eth2",
   "upstreamArg": "UPSTREAM_VERSION",
   "architectures": ["linux/amd64"],
@@ -22,7 +22,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-nimbus/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.57"
+    "minimumDappnodeVersion": "0.2.60"
   },
   "categories": ["Blockchain", "ETH2.0"],
   "links": {
