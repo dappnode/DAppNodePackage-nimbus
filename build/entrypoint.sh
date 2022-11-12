@@ -44,6 +44,12 @@ fi
         --data-dir=//home/user/nimbus-eth2/build/data
 [[ -n $WEB3_BACKUP_URL ]] && EXTRA_OPTS="--web3-url=${WEB3_BACKUP_URL} ${EXTRA_OPTS}"
 
+# Graffiti Limit to account for non unicode characters to prevent restart loop due to graffiti being too long
+oLang=$LANG oLcAll=$LC_ALL
+LANG=C LC_ALL=C 
+graffitiString=${GRAFFITI:0:32}
+LANG=$oLang LC_ALL=$oLcAll
+
 exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --network=${NETWORK} \
     --data-dir=${DATA_DIR} \
@@ -61,7 +67,7 @@ exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
     --keymanager-port=${VALIDATOR_PORT} \
     --keymanager-address=0.0.0.0 \
     --keymanager-token-file=${TOKEN_FILE} \
-    --graffiti="$GRAFFITI" \
+    --graffiti="${graffitiString}"
     --jwt-secret=/jwtsecret \
     --web3-url=$HTTP_ENGINE \
     --suggested-fee-recipient="${FEE_RECIPIENT_ADDRESS}" \
