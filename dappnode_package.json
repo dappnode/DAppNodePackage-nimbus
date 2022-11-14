@@ -22,7 +22,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-nimbus/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.57"
+    "minimumDappnodeVersion": "0.2.60"
   },
   "categories": ["Blockchain", "ETH2.0"],
   "links": {
@@ -36,10 +36,13 @@
     "serviceName": "beacon-validator",
     "portNumber": 4500
   },
-  "dependencies": {
-    "web3signer.dnp.dappnode.eth": "latest"
-  },
   "warnings": {
     "onRemove": "Make sure your web3signer does not have this client selected or you will stop validating! (Packages > web3signer > config > client)"
-  }
+  },
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_MAINNET", "MEVBOOST_MAINNET"],
+      "services": ["beacon-validator"]
+    }
+  ]
 }
