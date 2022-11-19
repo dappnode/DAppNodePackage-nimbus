@@ -9,7 +9,6 @@ services:
     stop_grace_period: 1m
     environment:
       LOG_TYPE: INFO
-      HTTP_ENGINE: ""
       GRAFFITI: validating_from_DAppNode
       P2P_TCP_PORT: 9106
       P2P_UDP_PORT: 9106
