@@ -49,13 +49,13 @@ LANG=C LC_ALL=C
 graffitiString=${GRAFFITI:0:32}
 LANG=$oLang LC_ALL=$oLcAll
 
-exec -c /home/user/nimbus-eth2/build/nimbus_beacon_node \
+exec -c /home/user/nimbus_beacon_node \
     --network=${NETWORK} \
     --data-dir=${DATA_DIR} \
     --tcp-port=$P2P_TCP_PORT \
     --udp-port=$P2P_UDP_PORT \
     --validators-dir=${VALIDATORS_DIR} \
-    --log-level=info \
+    --log-level=${LOG_TYPE} \
     --rest \
     --rest-port=4500 \
     --rest-address=0.0.0.0 \
