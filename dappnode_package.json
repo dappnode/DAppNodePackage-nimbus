@@ -22,7 +22,7 @@
     "url": "https://github.com/dappnode/DAppNodePackage-nimbus/issues"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.60"
+    "minimumDappnodeVersion": "0.2.69"
   },
   "categories": ["Blockchain", "ETH2.0"],
   "links": {
@@ -41,7 +41,11 @@
   },
   "globalEnvs": [
     {
-      "envs": ["EXECUTION_CLIENT_MAINNET", "MEVBOOST_MAINNET"],
+      "envs": [
+        "EXECUTION_CLIENT_MAINNET",
+        "MEVBOOST_MAINNET",
+        "FEE_RECIPIENT_MAINNET"
+      ],
       "services": ["beacon-validator"]
     }
   ]
