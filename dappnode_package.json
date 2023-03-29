@@ -26,7 +26,7 @@
   },
   "categories": ["Blockchain", "ETH2.0"],
   "links": {
-    "ui": "http://ui.web3signer.dappnode?signer_url=http://web3signer.web3signer.dappnode:9000",
+    "ui": "http://brain.web3signer.dappnode",
     "homepage": "https://nimbus.team/",
     "readme": "https://github.com/dappnode/DAppNodePackage-nimbus",
     "docs": "https://nimbus.guide"
@@ -37,7 +37,7 @@
     "portNumber": 4500
   },
   "warnings": {
-    "onRemove": "Make sure your web3signer does not have this client selected or you will stop validating! (Packages > web3signer > config > client)"
+    "onRemove": "Make sure your StakersUI does not have this client selected! Double check in the Stakers Tab in the left NavBar"
   },
   "globalEnvs": [
     {
