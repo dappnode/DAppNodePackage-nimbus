@@ -4,7 +4,7 @@ services:
     build:
       context: ./build
       args:
-        UPSTREAM_VERSION: v24.2.2
+        UPSTREAM_VERSION: v24.6.0
     restart: unless-stopped
     stop_grace_period: 1m
     environment:
@@ -16,10 +16,10 @@ services:
       EXTRA_OPTS: ""
       FEE_RECIPIENT_ADDRESS: ""
     ports:
-      - "9106:9106/tcp"
-      - "9106:9106/udp"
+      - 9106:9106/tcp
+      - 9106:9106/udp
     volumes:
-      - "nimbus-data:/home/user/nimbus-eth2/build/data"
-    image: "beacon-validator.nimbus.dnp.dappnode.eth:0.1.0"
+      - nimbus-data:/home/user/nimbus-eth2/build/data
+    image: beacon-validator.nimbus.dnp.dappnode.eth:0.1.0
 volumes:
   nimbus-data: {}
